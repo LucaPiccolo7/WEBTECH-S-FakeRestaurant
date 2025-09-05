@@ -1,0 +1,35 @@
+<section class="size-full container mx-auto px-10 dark:text-white text-black">
+    <div class="size-full flex flex-col justify-start items-center md:my-10 sm:my-8 my-6 md:px-10 sm:px-8 px-6">
+        @if(!this.showPublishRestaurantPage()){
+            @if(!this.isSearchActive){
+                <h1 class="md:text-2xl sm:text-xl text-sm font-semibold 
+                    md:mb-8 sm:mb-6 mb-3">Your Restaurants</h1>
+            }
+        
+            <div class="flex flex-col max-w-5xl size-full justify-center items-center rounded-2xl 
+                dark:bg-slate-900 bg-white border-2 border-gray-400 gap-2 px-10 md:py-8 sm:py-7 py-6">
+
+                @if(this.isSearchActive){
+                    <app-search-bar></app-search-bar>
+                }
+
+                @if(!this.isSearchActive && this.isAuthenticated){
+                <div class="self-end">
+                    <button (click)="publishRestaurant()" class="publish_restaurant_button md:mb-4 sm:mb-3 mb-2" id="publishRestaurantButton">Publish Restaurant</button>
+                </div>
+                }
+                   
+                @if(restaurants.length > 0){
+
+                    <app-restaurants-list class="size-full" [restaurants]="restaurants" [isSerchActive]="isSearchActive"></app-restaurants-list>
+                    <app-search-footer class="size-full"></app-search-footer>
+                } @else {
+                    <h1 class="md:text-sm sm:text-sm text-xs">No restaurant found.</h1>
+                }
+            </div>
+        } @else {
+            <app-publish-restaurant-page class="size-full"></app-publish-restaurant-page>
+        }
+
+    </div>
+</section>

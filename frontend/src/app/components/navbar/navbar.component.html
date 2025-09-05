@@ -1,0 +1,76 @@
+<nav class="bg-white dark:bg-slate-950 shadow-xl/30 border-b-2 border-amber-600">
+  <div class="container mx-auto">
+    <div class="flex justify-between items-center sm:px-6 md:px-4 px-2 sm:py-2 md:py-0 -py-2">
+      <div class="flex justify-center items-center gap-6">
+        <div class="flex justify-center items-center sm:size-16 md:size-14 size-12">
+          <img src="/assets/images/logo.png" alt="logo" class="shrink-0">
+        </div>
+        <div class="block">
+          <a routerLink="/" class="cursor-pointer px-2 py-2 dark:text-white text-black" id="homeButton">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-6">
+              <path fill-rule="evenodd" d="M9.293 2.293a1 1 0 0 1 1.414 0l7 7A1 1 0 0 1 17 11h-1v6a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6H3a1 1 0 0 1-.707-1.707l7-7Z" clip-rule="evenodd" />
+            </svg>
+          </a>
+        </div>
+        <app-dark-mode-toggle></app-dark-mode-toggle>
+      </div>
+      <div class="hidden md:block">
+        <div class="flex justify-center items-center gap-30">
+          <ul class="flex justify-center items-center gap-5">
+            <li>
+              <a class="link_style" (click)="handleRestaurants()" routerLink="/restaurants" aria-current="Restaurants">Restaurants</a>
+            </li>
+            <li>
+              <a class="link_style" (click)="closeMenu()" routerLink="/reviews" routerLinkActive="text-amber-500 hover:text-gray-900" aria-current="Reviews">Reviews</a>
+            </li>
+          </ul>
+          
+          <ul class="flex justify-center items-center gap-5">
+            @if(this.isAuthenticated){
+              <li>
+                <button (click)="closeMenu()" routerLink="/logout" class="upload_button hover:scale-105" aria-current="Logout">Logout from {{username}}</button>
+              </li>
+            } 
+            @else {
+              <li>
+                <a class="link_style" (click)="closeMenu()" routerLink="/login" routerLinkActive="text-amber-500 hover:text-gray-900" aria-current="Login">Login</a>
+              </li>
+              <li>
+                <a class="link_style" (click)="closeMenu()" routerLink="/register" routerLinkActive="text-amber-500 hover:text-gray-900" aria-current="Register">Register</a>
+              </li>
+            }
+          </ul>
+        </div>
+      </div>
+      <div class="md:hidden">
+        <button (click)="openMenuToggle()" type="button" data-collapse-toggle="mobile-menu" class="inline-flex justify-center rounded-md" aria-controls="Links menu" aria-expanded="false">
+          <app-menu-toggle class="link_style"></app-menu-toggle>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="{{isMenuOpen ? 'block' : 'hidden'}}">
+      <ul class="w-full md:hidden flex justify-center items-center flex-col md:flex-row py-4 gap-6 font-semibold shadow-xl/15 bg-white dark:bg-sky-950">
+        <li>
+          <a (click)="handleRestaurants()" class="link_menu_style" routerLink="/restaurants" aria-current="Restaurants">Restaurants</a>
+        </li>
+        <li>
+          <a (click)="closeMenu()" class="link_menu_style" routerLink="/reviews" routerLinkActive="text-amber-500 hover:text-gray-900" aria-current="Reviews">Reviews</a>
+        </li>
+
+        @if(this.isAuthenticated){
+          <li>
+            <a (click)="closeMenu()" class="link_menu_style" routerLink="/logout" routerLinkActive="text-amber-500 hover:text-gray-900" aria-current="Logout">Logout ({{username}})</a>
+          </li>
+        }
+        @else {
+        <li>
+          <a (click)="closeMenu()" class="link_menu_style" routerLink="/register" routerLinkActive="text-amber-500 hover:text-gray-900" aria-current="Reviews">Register</a>
+        </li>
+        <li>
+          <a (click)="closeMenu()" class="link_menu_style" routerLink="/login" routerLinkActive="text-amber-500 hover:text-gray-900" aria-current="Login">Login</a>
+        </li>   
+        }
+      </ul>
+    </div>
+  </div>
+</nav>

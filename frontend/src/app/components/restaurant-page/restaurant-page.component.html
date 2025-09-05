@@ -1,0 +1,60 @@
+<section class="container mx-auto dark:text-white text-gray-900">
+    <div class="w-full flex justify-center items-center p-10">
+        <div class="w-full grid grid-cols-1 sm:grid-cols-2 md:gap-12 sm:gap-10 gap-8">
+
+            <div class="justify-self-center sm:col-span-1 col-span-2 size-full overflow-hidden max-w-120 max-h-100">
+                <img class="rounded-2xl size-full object-cover object-center" alt="Restaurant image" [src]="getImageUrl(restaurant.image)">
+            </div>
+
+            <div class="w-full flex flex-col justify-start items-start sm:col-span-1 col-span-2">
+                <div class="w-full flex flex-col justify-start items-start gap-10">
+                    <div class="w-full flex flex-col justify-start items-start gap-1">
+                        <h1 class="label_style">Name</h1>
+                        <p class="w-full min-w-0 flex-1 italic whitespace-normal break-words md:text-base sm:text-sm text-sm">{{restaurant.name}}</p>
+                    </div>
+                    <div class="w-full flex flex-col justify-start items-start gap-1">
+                        <h1 class="label_style">Description</h1>
+                        <p class="w-full min-w-0 flex-1 italic whitespace-normal break-words md:text-base sm:text-sm text-sm">{{restaurant.description}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="justify-self-center w-full h-full max-w-120 max-h-120 flex flex-col justify-start items-start sm:col-span-1 col-span-2 gap-1">
+                <h1 class="label_style">Address</h1>
+                <div class="w-full relative h-full min-h-70">
+                    <app-map [isRestaurantPage]="true" [initialLatitude]="restaurant.latitude" [initialLongitude]="restaurant.longitude"></app-map>
+                </div>
+            </div>
+
+            <div class="flex flex-col justify-start items-start sm:col-span-1 col-span-2 gap-1">
+                <label for="review" class="label_style">Publish your review</label>
+                <form class="size-full min-w-40 flex flex-col justify-end items-end gap-4" [formGroup]="reviewForm" (ngSubmit)="onPublish()">
+                    <textarea id="review" class="size-full input_text_style min-h-40" placeholder="Max 150 characters" formControlName="message"></textarea>
+                    @if(this.submitted && this.message?.invalid){
+                        @if(this.message?.hasError('required')){
+                            <h3 class="form_error">Message is required</h3>
+                        }
+                        @if(this.message?.hasError('minlength')){
+                            <h3 class="form_error">Message must be at minimum 1 character long</h3>
+                        }
+                        @if(this.message?.hasError('maxlength')){
+                            <h3 class="form_error">Message must be at maximum 150 characters long</h3>
+                        }
+                    }
+                    <button class="publish_restaurant_button" type="submit">Publish review</button>
+                </form>
+            </div>
+            
+            <div class="col-span-2  size-full justify-center items-center rounded-2xl 
+                dark:bg-slate-900 bg-white border-2 border-gray-400 px-10 py-8">
+
+                @if(reviews.length > 0){
+                    <app-reviews-list class="w-full" [reviews]="reviews" [isRestaurantPage]="true"></app-reviews-list>
+                    <app-search-footer class="w-full" [isRestaurantPage]="true" [restaurantId]="restaurantId()"></app-search-footer>
+                } @else {
+                    <h1 class="md:text-sm sm:text-sm text-xs">No review found.</h1>
+                }
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,89 @@
+/* You can add global styles to this file, and also import other style files */
+@use 'ngx-toastr/toastr';
+@use "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer components {
+
+  .page_title {
+    @apply text-black dark:text-white
+            font-bold
+            md:text-3xl sm:text-2xl text-xl  
+  }
+
+  .label_style {
+    @apply text-gray-900 dark:text-white md:text-sm sm:text-base block mb-2 text-sm font-medium;
+  }
+
+  .input_text_style {
+    @apply w-full bg-gray-50 dark:bg-slate-800 border outline
+        border-gray-300 dark:border-gray-600
+        focus-visible:border-amber-600 focus-visible:ring-amber-600
+        text-gray-900 dark:text-white text-sm rounded-lg 
+        block p-2.5;
+  }
+
+  .input_file_style {
+    @apply  w-full bg-gray-50 dark:bg-slate-800 border outline
+            border-gray-300 dark:border-gray-600
+            dark:placeholder-gray-400 placeholder-gray-900
+            dark:text-white text-gray-900
+            block p-1 text-sm rounded-lg cursor-pointer;
+  }
+
+  .upload_button {
+    @apply inline-flex items-center px-4 py-2 bg-amber-600 text-white text-sm font-medium
+        rounded-md cursor-pointer hover:bg-amber-700;
+  }
+
+  .link_style {
+    @apply cursor-pointer hover:scale-105 rounded-xl px-3 py-2 border-2 border-transparent
+            hover:border-2 hover:border-amber-600 hover:bg-gray-100 hover:text-gray-900
+             dark:hover:border-blue-600 dark:hover:bg-blue-200 dark:text-white
+            font-semibold;
+  }
+
+  .link_menu_style {
+    @apply cursor-pointer hover:text-amber-500 font-semibold
+            dark:text-white text-black;
+  }
+
+
+  .logout_button_style {
+    @apply cursor-pointer hover:scale-105 rounded-xl px-3 py-2 border-2 border-transparent
+                hover:border-2 hover:border-amber-600 hover:bg-gray-100 hover:text-gray-900
+                 dark:hover:border-blue-600 dark:hover:bg-blue-200 dark:text-white
+                 font-semibold;
+  }
+
+  .search_footer_prev_button {
+    @apply flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 
+          bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 
+          dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white;
+  }
+
+  .search_footer_next_button {
+    @apply flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border
+         border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800
+         dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white;
+  }
+
+  .search_footer_page_button {
+    @apply flex items-center cursor-pointer justify-center px-3 h-8 leading-tight text-gray-500 
+          bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 
+          dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white;
+  }
+
+  .publish_restaurant_button {
+    @apply cursor-pointer bg-green-800 hover:bg-green-700 hover:scale-105 text-white rounded px-3 py-2 md:text-base sm:text-base text-sm;
+  }
+
+  .discard_restaurant_button {
+    @apply cursor-pointer bg-red-800 hover:bg-red-700 hover:scale-105 text-white rounded px-3 py-2 md:text-base sm:text-base text-sm;
+  }
+
+  .form_error {
+    @apply text-red-700 text-xs italic
+  }
+}

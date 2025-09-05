@@ -1,0 +1,18 @@
+<section class="size-full container mx-auto px-10 dark:text-white text-black">
+    <div class="size-full flex flex-col justify-start items-center md:my-10 sm:my-8 my-6 md:px-10 sm:px-8 px-6">
+
+        <h1 class="md:text-2xl sm:text-xl text-sm font-semibold 
+            md:mb-8 sm:mb-6 mb-3">Your Reviews</h1>
+
+        <div class="flex flex-col max-w-5xl size-full justify-center items-center rounded-2xl 
+            dark:bg-slate-900 bg-white border-2 border-gray-400 px-10 py-8">
+
+            @if(reviews.length > 0){
+                <app-reviews-list class="w-full" [reviews]="reviews"></app-reviews-list>
+                <app-search-footer class="w-full"></app-search-footer>
+            } @else {
+                <h1 class="md:text-sm sm:text-sm text-xs">No review found.</h1>
+            }
+        </div>
+    </div>
+</section>

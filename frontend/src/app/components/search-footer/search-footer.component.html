@@ -1,0 +1,43 @@
+<div class="w-full flex md:flex-row sm:flew-row flex-col justify-between items-center md:px-10 sm:px-8 px-6 gap-4">
+  <!--INFO-->
+  <div>
+    <h1 class="italic">Page <strong>{{page}}</strong> of <strong>{{totalPages}}</strong></h1>
+  </div>
+  <!-- PAGER -->
+  <div class="flex justify-center items-center md:gap-6 sm:gap-4 gap-2">
+    <div class="flex justify-center items-center gap-3">
+      <label for="goToPage" (click)="handleClick(goToPage)" class="md:text-base sm:text-sm text-xs hover:underline text-blue-600 hover:text-blue-800 hover:cursor-pointer">Go to page</label>
+      <input class="md:w-12 sm:w-10 w-8 text-sm bg-white dark:bg-gray-800 rounded border dark:border-gray-400 border-black dark:text-white text-black" [(ngModel)]="goToPage" type="number" id="goToPage" name="page" min="1" max="{{this.totalPages}}"/>
+    </div>
+    <ul class="flex items-center -space-x-px h-8 text-sm">
+      <li>
+        <a
+          (click)="onPrev($event)"
+          [class.opacity-50]="page <= 1"
+          class="search_footer_prev_button">
+            <svg class="w-2.5 h-2.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+            </svg>
+        </a>
+      </li>
+      <div class="md:flex sm:flex hidden justify-center items-center">
+      @for(num of this.displayedPages; track num){
+        <li>
+          <a (click)="handleClick(num)" class="search_footer_page_button">
+          {{num}}</a>
+        </li>
+      }
+      </div>
+      <li>
+        <a
+          (click)="onNext($event)"
+          [class.opacity-50]="page >= totalPages"
+          class="search_footer_next_button">
+          <svg class="w-2.5 h-2.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

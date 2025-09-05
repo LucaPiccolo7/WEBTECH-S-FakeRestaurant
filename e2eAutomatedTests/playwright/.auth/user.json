@@ -1,0 +1,22 @@
+{
+  "cookies": [],
+  "origins": [
+    {
+      "origin": "http://localhost:4200",
+      "localStorage": [
+        {
+          "name": "color-theme",
+          "value": "light"
+        },
+        {
+          "name": "username",
+          "value": "usertest"
+        },
+        {
+          "name": "token",
+          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJ0ZXN0IiwiaWF0IjoxNzU3MDYzNzE1LCJleHAiOjE3NTcwODUzMTV9.9WIeCXJwp2gP7aFo__JltFt4zUTWhdhksWgIbmk6wHA"
+        }
+      ]
+    }
+  ]
+}
