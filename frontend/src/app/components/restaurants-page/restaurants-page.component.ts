@@ -36,7 +36,7 @@ export class RestaurantsPageComponent implements OnDestroy {
   totalPages!: number;
   page!: number;
 
-  _showPublishRestaurantPage = signal(false);
+  private _showPublishRestaurantPage = signal(false);
   showPublishRestaurantPage!: Signal<boolean>;
 
   constructor(){
