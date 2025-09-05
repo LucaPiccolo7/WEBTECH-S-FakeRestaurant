@@ -1,6 +1,9 @@
 # WEBTECH’S FakeRestaurant
 FakeRestaurant is a satirical platform that allows users to invent imaginary restaurants and write humorous reviews, creating a playful parody of traditional food review sites.
 
+## Info
+<strong>The database included in the backend is already populated with sample data!</strong>
+
 ## Installing dependencies
 Assuming you are in the /FakeRestaurant directory
 #### Backend
