@@ -23,6 +23,7 @@ npm install
 cd e2eAutomatedTests
 npm install
 npx playwright install
+npm playwright install-deps
 ```
 
 ## Create environment files
