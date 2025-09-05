@@ -21,11 +21,11 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class RestaurantsPageComponent implements OnDestroy {
 
-  private authService = inject(AuthService);
-  private searchService = inject(SearchService);
-  private restaurantService = inject(RestaurantService);
-  private routerService = inject(Router);
-  private toastrService = inject(ToastrService);
+  authService = inject(AuthService);
+  searchService = inject(SearchService);
+  restaurantService = inject(RestaurantService);
+  routerService = inject(Router);
+  toastrService = inject(ToastrService);
 
   restaurants: Restaurant[] = [];
   searchRequest!: SearchRequest;
@@ -36,7 +36,7 @@ export class RestaurantsPageComponent implements OnDestroy {
   totalPages!: number;
   page!: number;
 
-  private _showPublishRestaurantPage = signal(false);
+  _showPublishRestaurantPage = signal(false);
   showPublishRestaurantPage!: Signal<boolean>;
 
   constructor(){

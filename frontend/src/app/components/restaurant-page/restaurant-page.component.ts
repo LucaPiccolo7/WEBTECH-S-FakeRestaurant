@@ -23,13 +23,13 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class RestaurantPageComponent implements OnDestroy {
 
-  private restaurantService = inject(RestaurantService);
-  private reviewService = inject(ReviewService);
-  private searchService = inject(SearchService);
-  private authService = inject(AuthService);
-  private activatedRouteService = inject(ActivatedRoute);
-  private toastrService = inject(ToastrService);
-  private routerService = inject(Router);
+  restaurantService = inject(RestaurantService);
+  reviewService = inject(ReviewService);
+  searchService = inject(SearchService);
+  authService = inject(AuthService);
+  activatedRouteService = inject(ActivatedRoute);
+  toastrService = inject(ToastrService);
+  routerService = inject(Router);
 
   isRestaurantPage = true;
   restaurantId = signal(0);
