@@ -22,6 +22,7 @@ npm install
 ```
 cd e2eAutomatedTests
 npm install
+npx playwright install
 ```
 
 ## Create environment files
